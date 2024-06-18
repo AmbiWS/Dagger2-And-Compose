@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.jetbrains.kotlin.kapt)
+    alias(libs.plugins.navigation.plugin)
 }
 
 android {
@@ -25,6 +26,11 @@ android {
                 "proguard-rules.pro"
             )
         }
+    }
+
+    buildFeatures {
+        viewBinding = true
+        buildConfig = true
     }
 
     compileOptions {
@@ -51,5 +57,9 @@ dependencies {
 
     // DI
     implementation(libs.dagger)
-    kapt(libs.daggerKapt)
+    kapt(libs.dagger.kapt)
+
+    // Navigation
+    implementation(libs.navigation.fragment)
+    implementation(libs.navigation.ui)
 }
