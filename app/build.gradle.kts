@@ -26,6 +26,10 @@ android {
                 "proguard-rules.pro"
             )
         }
+
+        all {
+            buildConfigField("String", "BASE_URL", "\"http://numbersapi.com/\"")
+        }
     }
 
     buildFeatures {
@@ -41,6 +45,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+}
+
+kapt {
+    generateStubs = true
 }
 
 dependencies {
@@ -62,4 +70,10 @@ dependencies {
     // Navigation
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+
+    // Network
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+    implementation(platform(libs.okhttp))
+    implementation(libs.okhttp.logging.interceptor)
 }
