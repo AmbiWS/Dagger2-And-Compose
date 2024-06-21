@@ -39,7 +39,7 @@ abstract class BaseFragment<VM: BaseViewModel, VB : ViewBinding>(
     protected open val viewModel: VM by lazy {
         getAppComponent()
             .viewModelComponent
-            .context(requireContext())
+            .context(requireActivity().applicationContext)
             .build()
             .factory
             .create(((javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<VM>))
