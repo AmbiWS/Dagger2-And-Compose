@@ -10,7 +10,7 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
-@Module
+/*@Module
 class AppModule(app: Application) {
 
     private val appInstance: Application = app
@@ -36,4 +36,4 @@ class AppModule(app: Application) {
     fun providePreferencesProvider(context: Application): PreferencesProvider {
         return PreferencesProviderImpl(context)
     }
-}
+}*/

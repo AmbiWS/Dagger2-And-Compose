@@ -6,18 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.CallSuper
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.ambiws.daggerandcompose.App
 import com.ambiws.daggerandcompose.R
 import com.ambiws.daggerandcompose.base.navigation.NavigationCommandHandler
-import com.ambiws.daggerandcompose.core.di.NetComponent
+import com.ambiws.daggerandcompose.core.di.components.AppComponent
 import com.ambiws.daggerandcompose.utils.extensions.className
 import com.ambiws.daggerandcompose.utils.logd
+import java.lang.reflect.ParameterizedType
 
 typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 
-abstract class BaseFragment<VB : ViewBinding>(
+abstract class BaseFragment<VM: ViewModel, VB : ViewBinding>(
     private val inflate: Inflate<VB>
 ) : Fragment() {
 
@@ -25,15 +27,13 @@ abstract class BaseFragment<VB : ViewBinding>(
     val binding: VB
         get() = _binding as VB
 
-    fun BaseFragment<VB>.getAppComponent(): NetComponent =
-        (requireActivity().application as App).getNetComponent()
+    protected fun BaseFragment<VM, VB>.getAppComponent(): AppComponent =
+        (requireActivity().application as App).getAppComponent()
 
-    //@Suppress("UNCHECKED_CAST")
-    /*protected open val viewModel: VM by lazy {
-        viewModelForClass(
-            clazz = ((javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<VM>).kotlin
-        ).value
-    }*/
+    @Suppress("UNCHECKED_CAST")
+    protected open val viewModel: VM by lazy {
+        getAppComponent().viewModelComponent.build().factory.create(((javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<VM>))
+    }
 
     protected open val navigationCommandHandler =
         NavigationCommandHandler(navControllerDefinition = { findNavController() })

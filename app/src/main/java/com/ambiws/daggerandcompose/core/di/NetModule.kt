@@ -16,7 +16,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-@Singleton
+/*@Singleton
 @Component(modules = [AppModule::class, NetModule::class])
 interface NetComponent {
     fun inject(activity: MainActivity)
@@ -87,4 +87,4 @@ class NetModule {
             .client(okHttpClient)
             .build()
     }
-}
+}*/
