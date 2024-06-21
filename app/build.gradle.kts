@@ -47,10 +47,6 @@ android {
     }
 }
 
-kapt {
-    generateStubs = true
-}
-
 dependencies {
 
     // Core
@@ -65,7 +61,9 @@ dependencies {
 
     // DI
     implementation(libs.dagger)
+    implementation(libs.dagger.android)
     kapt(libs.dagger.kapt)
+    kapt(libs.dagger.android.processor)
 
     // Navigation
     implementation(libs.navigation.fragment)

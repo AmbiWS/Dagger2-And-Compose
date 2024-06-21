@@ -8,12 +8,12 @@ import androidx.annotation.CallSuper
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
+import com.ambiws.daggerandcompose.App
 import com.ambiws.daggerandcompose.R
 import com.ambiws.daggerandcompose.base.navigation.NavigationCommandHandler
+import com.ambiws.daggerandcompose.core.di.NetComponent
 import com.ambiws.daggerandcompose.utils.extensions.className
-import com.ambiws.daggerandcompose.utils.extensions.subscribe
 import com.ambiws.daggerandcompose.utils.logd
-import com.google.android.material.snackbar.Snackbar
 
 typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 
@@ -25,8 +25,11 @@ abstract class BaseFragment<VB : ViewBinding>(
     val binding: VB
         get() = _binding as VB
 
-    /*@Suppress("UNCHECKED_CAST")
-    protected open val viewModel: VM by lazy {
+    fun BaseFragment<VB>.getAppComponent(): NetComponent =
+        (requireActivity().application as App).getNetComponent()
+
+    //@Suppress("UNCHECKED_CAST")
+    /*protected open val viewModel: VM by lazy {
         viewModelForClass(
             clazz = ((javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<VM>).kotlin
         ).value
@@ -47,23 +50,23 @@ abstract class BaseFragment<VB : ViewBinding>(
     open fun setupObservers() {
         logd(getString(R.string.setup_stage, "Observers", className))
         /*subscribe(viewModel.navigationCommand) { navigationCommand ->
-             navigationCommandHandler.handle(requireActivity(), navigationCommand)
-         }
-         subscribe(viewModel.stateLiveEvent) { state ->
-             when (state) {
-                 UiState.Loading -> {
-                     // Nothing to do
-                 }
-                 UiState.Success -> {
-                     // Nothing to do
-                 }
-                 is UiState.Error -> {
-                     Snackbar.make(binding.root, state.error.message, Snackbar.LENGTH_SHORT)
-                         .setTextColor(requireContext().getColor(R.color.lt_red))
-                         .show()
-                 }
-             }
-         }*/
+            navigationCommandHandler.handle(requireActivity(), navigationCommand)
+        }
+        subscribe(viewModel.stateLiveEvent) { state ->
+            when (state) {
+                UiState.Loading -> {
+                    // Nothing to do
+                }
+                UiState.Success -> {
+                    // Nothing to do
+                }
+                is UiState.Error -> {
+                    Snackbar.make(binding.root, state.error.message, Snackbar.LENGTH_SHORT)
+                        .setTextColor(requireContext().getColor(R.color.lt_red))
+                        .show()
+                }
+            }
+        }*/
     }
 
     override fun onCreateView(
