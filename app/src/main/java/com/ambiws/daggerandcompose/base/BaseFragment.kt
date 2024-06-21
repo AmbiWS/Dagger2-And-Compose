@@ -13,7 +13,9 @@ import com.ambiws.daggerandcompose.R
 import com.ambiws.daggerandcompose.base.navigation.NavigationCommandHandler
 import com.ambiws.daggerandcompose.core.di.components.AppComponent
 import com.ambiws.daggerandcompose.utils.extensions.className
+import com.ambiws.daggerandcompose.utils.extensions.subscribe
 import com.ambiws.daggerandcompose.utils.logd
+import com.google.android.material.snackbar.Snackbar
 import java.lang.reflect.ParameterizedType
 
 typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
@@ -31,7 +33,12 @@ abstract class BaseFragment<VM: BaseViewModel, VB : ViewBinding>(
 
     @Suppress("UNCHECKED_CAST")
     protected open val viewModel: VM by lazy {
-        getAppComponent().viewModelComponent.build().factory.create(((javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<VM>))
+        getAppComponent()
+            .viewModelComponent
+            .context(requireContext())
+            .build()
+            .factory
+            .create(((javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<VM>))
     }
 
     protected open val navigationCommandHandler =
@@ -48,7 +55,7 @@ abstract class BaseFragment<VM: BaseViewModel, VB : ViewBinding>(
     @CallSuper
     open fun setupObservers() {
         logd(getString(R.string.setup_stage, "Observers", className))
-        /*subscribe(viewModel.navigationCommand) { navigationCommand ->
+        subscribe(viewModel.navigationCommand) { navigationCommand ->
             navigationCommandHandler.handle(requireActivity(), navigationCommand)
         }
         subscribe(viewModel.stateLiveEvent) { state ->
@@ -65,7 +72,7 @@ abstract class BaseFragment<VM: BaseViewModel, VB : ViewBinding>(
                         .show()
                 }
             }
-        }*/
+        }
     }
 
     override fun onCreateView(

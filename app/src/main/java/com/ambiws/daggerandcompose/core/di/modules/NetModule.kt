@@ -12,7 +12,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Singleton
 
 @Module
 class NetModule {
@@ -20,19 +19,16 @@ class NetModule {
     private val isDebugBuild = BuildConfig.DEBUG
 
     @Provides
-    @Singleton
     fun provideGson(): Gson {
         return GsonBuilder().setLenient().serializeNulls().create()
     }
 
     @Provides
-    @Singleton
     fun provideGsonConverterFactory(gson: Gson): GsonConverterFactory {
         return GsonConverterFactory.create(gson)
     }
 
     @Provides
-    @Singleton
     fun provideLoggingInterceptor(): HttpLoggingInterceptor {
         val interceptor = HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
@@ -41,19 +37,16 @@ class NetModule {
     }
 
     @Provides
-    @Singleton
     fun provideErrorCallAdapterFactory(): ErrorCallAdapterFactory {
         return ErrorCallAdapterFactory()
     }
 
     @Provides
-    @Singleton
     fun provideExceptionParser(resourceProvider: ResourceProvider): ExceptionParser {
         return ExceptionParser(resourceProvider)
     }
 
     @Provides
-    @Singleton
     fun provideOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
         return if (isDebugBuild) {
             OkHttpClient.Builder()
@@ -65,7 +58,6 @@ class NetModule {
     }
 
     @Provides
-    @Singleton
     fun provideRetrofit(
         gsonConverterFactory: GsonConverterFactory,
         callAdapterFactory: ErrorCallAdapterFactory,

@@ -4,6 +4,7 @@ import android.app.Application
 import com.ambiws.daggerandcompose.core.di.components.AppComponent
 import com.ambiws.daggerandcompose.core.di.components.DaggerAppComponent
 
+// TODO Handle contexts in di graph
 // TODO Add scopes feature within Dagger 2
 // TODO Implement caching feature (lists & room)
 // TODO Optimize DI graph
@@ -15,9 +16,7 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        appComponent = DaggerAppComponent.builder()
-            .context(this)
-            .build()
+        appComponent = DaggerAppComponent.create()
     }
 
     fun getAppComponent(): AppComponent {
