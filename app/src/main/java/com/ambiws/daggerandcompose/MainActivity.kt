@@ -63,12 +63,12 @@ class MainActivity : AppCompatActivity() {
     private fun initDashboardNavigation(navigationHostFragment: Fragment) {
         navigationHostFragment.findNavController()
             .addOnDestinationChangedListener { _, _, _ ->
-                // TODO implement navigation for dashboard
+                // Implement navigation for dashboard if necessary
             }
     }
 
     private fun activateSplashScreen() {
-        // TODO implement custom splash screen animation
+        // Implement custom splash screen animation if necessary
     }
 
     private fun getApplicationContainerFragment() =

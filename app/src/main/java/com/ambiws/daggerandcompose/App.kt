@@ -10,6 +10,9 @@ import com.ambiws.daggerandcompose.core.di.components.DaggerAppComponent
 // TODO Optimize DI graph
 // TODO Check VM recreation cases
 // TODO Migrate on Hilt at the latest stage
+// TODO Check UiStates flow execution
+// TODO Check behaviour on collect in BaseViewModel 'launch' (endless loading?)
+// TODO Check for memory leaks and unnecessary calls/object creations, optimize everything
 class App : Application() {
 
     private lateinit var appComponent: AppComponent

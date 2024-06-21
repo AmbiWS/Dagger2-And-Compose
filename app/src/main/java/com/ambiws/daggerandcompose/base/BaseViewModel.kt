@@ -46,7 +46,7 @@ abstract class BaseViewModel : ViewModel() {
     protected fun setError(throwable: Throwable) {
         when (throwable) {
             is UnauthorizedServerError -> {
-                // TODO implement logout or authorizer interceptor
+                // Implement logout or authorizer interceptor if necessary
                 navigation.navigateBackToStart(hideKeyboard = true)
             }
             else -> {
@@ -64,7 +64,6 @@ abstract class BaseViewModel : ViewModel() {
         showDefaultLoader: Boolean = false,
         block: suspend CoroutineScope.() -> Unit
     ): Job {
-        // TODO check behaviour on collect (endless loading?)
         return viewModelScope.launch(context = coroutineContext + defaultExceptionHandler) {
             if (showDefaultLoader) {
                 _stateLiveEvent.value = UiState.Loading
