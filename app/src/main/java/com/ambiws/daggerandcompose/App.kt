@@ -5,7 +5,7 @@ import com.ambiws.daggerandcompose.core.di.components.AppComponent
 import com.ambiws.daggerandcompose.core.di.components.DaggerAppComponent
 
 // TODO Handle contexts in di graph
-// TODO Add scopes feature within Dagger 2
+// TODO Analyze and optimize scopes (object leaks and creation flow)
 // TODO Implement caching feature (lists & room)
 // TODO Optimize DI graph
 // TODO Check VM recreation cases
