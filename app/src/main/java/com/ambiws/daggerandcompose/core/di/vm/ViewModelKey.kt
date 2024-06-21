@@ -1,6 +1,6 @@
 package com.ambiws.daggerandcompose.core.di.vm
 
-import androidx.lifecycle.ViewModel
+import com.ambiws.daggerandcompose.base.BaseViewModel
 import dagger.MapKey
 import kotlin.reflect.KClass
 
@@ -8,4 +8,4 @@ import kotlin.reflect.KClass
 @Target(AnnotationTarget.FUNCTION)
 @Retention(AnnotationRetention.RUNTIME)
 @MapKey
-annotation class ViewModelKey(val value: KClass<out ViewModel>)
+annotation class ViewModelKey(val value: KClass<out BaseViewModel>)

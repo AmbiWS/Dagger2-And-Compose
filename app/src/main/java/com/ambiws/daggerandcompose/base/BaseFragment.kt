@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.CallSuper
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.ambiws.daggerandcompose.App
@@ -19,7 +18,7 @@ import java.lang.reflect.ParameterizedType
 
 typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 
-abstract class BaseFragment<VM: ViewModel, VB : ViewBinding>(
+abstract class BaseFragment<VM: BaseViewModel, VB : ViewBinding>(
     private val inflate: Inflate<VB>
 ) : Fragment() {
 

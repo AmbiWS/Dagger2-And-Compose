@@ -1,13 +1,11 @@
-package com.ambiws.daggerandcompose.core.di
+package com.ambiws.daggerandcompose.core.di.modules
 
 import com.ambiws.daggerandcompose.BuildConfig
-import com.ambiws.daggerandcompose.MainActivity
 import com.ambiws.daggerandcompose.core.network.adapters.ErrorCallAdapterFactory
 import com.ambiws.daggerandcompose.core.network.adapters.ExceptionParser
 import com.ambiws.daggerandcompose.utils.providers.ResourceProvider
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import dagger.Component
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -15,13 +13,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
-
-/*@Singleton
-@Component(modules = [AppModule::class, NetModule::class])
-interface NetComponent {
-    fun inject(activity: MainActivity)
-    fun viewModelsFactory(): ViewModelFactory
-}
 
 @Module
 class NetModule {
@@ -57,7 +48,7 @@ class NetModule {
 
     @Provides
     @Singleton
-    fun provideExceptionFactory(resourceProvider: ResourceProvider): ExceptionParser {
+    fun provideExceptionParser(resourceProvider: ResourceProvider): ExceptionParser {
         return ExceptionParser(resourceProvider)
     }
 
@@ -87,4 +78,4 @@ class NetModule {
             .client(okHttpClient)
             .build()
     }
-}*/
+}

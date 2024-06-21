@@ -7,7 +7,7 @@ import com.ambiws.daggerandcompose.core.di.components.DaggerAppComponent
 // TODO Add scopes feature within Dagger 2
 // TODO Implement caching feature (lists & room)
 // TODO Optimize DI graph
-// TODO Check VM recreation cases for MainActivity
+// TODO Check VM recreation cases
 // TODO Migrate on Hilt at the latest stage
 class App : Application() {
 
@@ -15,7 +15,9 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        appComponent = DaggerAppComponent.create()
+        appComponent = DaggerAppComponent.builder()
+            .context(this)
+            .build()
     }
 
     fun getAppComponent(): AppComponent {
