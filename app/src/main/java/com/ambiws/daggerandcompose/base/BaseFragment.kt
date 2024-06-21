@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.CallSuper
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.ambiws.daggerandcompose.App
+import com.ambiws.daggerandcompose.MainViewModel
 import com.ambiws.daggerandcompose.R
 import com.ambiws.daggerandcompose.base.navigation.NavigationCommandHandler
 import com.ambiws.daggerandcompose.core.di.components.AppComponent
@@ -30,6 +32,8 @@ abstract class BaseFragment<VM: BaseViewModel, VB : ViewBinding>(
 
     protected fun BaseFragment<VM, VB>.getAppComponent(): AppComponent =
         (requireActivity().application as App).getAppComponent()
+
+    protected open val mainViewModel: MainViewModel by activityViewModels<MainViewModel>()
 
     @Suppress("UNCHECKED_CAST")
     protected open val viewModel: VM by lazy {
