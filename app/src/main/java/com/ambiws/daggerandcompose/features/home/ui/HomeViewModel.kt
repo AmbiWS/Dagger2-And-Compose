@@ -5,7 +5,9 @@ import javax.inject.Inject
 
 class HomeViewModel @Inject constructor() : BaseViewModel() {
 
-    fun getNumberFact(): String {
-        return "Some fact."
+    fun navigateToList() {
+        navigation.navigate(
+            HomeFragmentDirections.actionHomeFragmentToListFragment()
+        )
     }
 }

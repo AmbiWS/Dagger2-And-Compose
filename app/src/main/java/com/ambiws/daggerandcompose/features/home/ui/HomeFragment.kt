@@ -8,8 +8,10 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(
     FragmentHomeBinding::inflate
 ) {
 
-    override fun setupUi() {
-        super.setupUi()
-        logd(viewModel.getNumberFact())
+    override fun setupListeners() {
+        super.setupListeners()
+        binding.button.setOnClickListener {
+            viewModel.navigateToList()
+        }
     }
 }
