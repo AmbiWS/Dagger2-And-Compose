@@ -3,6 +3,7 @@ package com.ambiws.daggerandcompose.core.di.modules
 import com.ambiws.daggerandcompose.BuildConfig
 import com.ambiws.daggerandcompose.core.network.adapters.ErrorCallAdapterFactory
 import com.ambiws.daggerandcompose.core.network.adapters.ExceptionParser
+import com.ambiws.daggerandcompose.features.list.data.dataSource.ListApi
 import com.ambiws.daggerandcompose.utils.providers.ResourceProvider
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -69,5 +70,10 @@ class NetModule {
             .addCallAdapterFactory(callAdapterFactory)
             .client(okHttpClient)
             .build()
+    }
+
+    @Provides
+    fun provideListApi(retrofit: Retrofit): ListApi {
+        return retrofit.create(ListApi::class.java)
     }
 }

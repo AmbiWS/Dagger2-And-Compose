@@ -5,4 +5,10 @@ import com.ambiws.daggerandcompose.databinding.FragmentListBinding
 
 class ListFragment : BaseFragment<ListViewModel, FragmentListBinding>(
     FragmentListBinding::inflate
-)
+) {
+
+    override fun setupUi() {
+        super.setupUi()
+        viewModel.printCharactersData()
+    }
+}

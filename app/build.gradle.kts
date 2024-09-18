@@ -28,7 +28,7 @@ android {
         }
 
         all {
-            buildConfigField("String", "BASE_URL", "\"http://numbersapi.com/\"")
+            buildConfigField("String", "BASE_URL", "\"https://potterapi-fedeperin.vercel.app/en/\"")
         }
     }
 

@@ -1,14 +1,16 @@
 package com.ambiws.daggerandcompose.features.list.data.dataSource
 
+import com.ambiws.daggerandcompose.features.list.data.dataSource.response.CharactersResponse
+
 interface ListDataSource {
-    fun getCharacters(): List<CharactersResponse>
+    suspend fun getCharacters(): List<CharactersResponse>
 }
 
 class ListDataSourceImpl(
     private val api: ListApi
 ) : ListDataSource {
 
-    override fun getCharacters(): List<CharactersResponse> {
-        api.getCharacters()
+    override suspend fun getCharacters(): List<CharactersResponse> {
+        return api.getCharacters()
     }
 }
