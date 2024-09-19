@@ -2,7 +2,7 @@ package com.ambiws.daggerandcompose.features.list.data.dataSource.response
 
 import com.google.gson.annotations.SerializedName
 
-data class CharactersResponse(
+data class CharacterResponse(
     @SerializedName("fullName")
     val name: String?,
     @SerializedName("nickname")
