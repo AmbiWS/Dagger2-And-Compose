@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivPicture"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -14,24 +14,51 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/Circular50"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/tvName"
+        style="@style/TextClassic14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toEndOf="@+id/ivPicture"
         app:layout_constraintTop_toTopOf="@+id/ivPicture"
         tools:text="Harry Potter" />
 
     <TextView
         android:id="@+id/tvNickname"
+        style="@style/TextSecondary14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvName"
         app:layout_constraintStart_toEndOf="@+id/tvName"
-        app:layout_constraintTop_toTopOf="@+id/ivPicture"
+        app:layout_constraintTop_toTopOf="@+id/tvName"
         tools:text="(Harry)" />
 
+    <TextView
+        android:id="@+id/tvHouse"
+        style="@style/TextClassic14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvBirthday"
+        app:layout_constraintStart_toStartOf="@+id/tvName"
+        app:layout_constraintTop_toBottomOf="@+id/tvName"
+        tools:text="Gryffindor" />
+
+    <TextView
+        android:id="@+id/tvBirthday"
+        style="@style/TextSecondary14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivPicture"
+        app:layout_constraintStart_toStartOf="@+id/tvName"
+        tools:text="31.07.1980" />
 </androidx.constraintlayout.widget.ConstraintLayout>
