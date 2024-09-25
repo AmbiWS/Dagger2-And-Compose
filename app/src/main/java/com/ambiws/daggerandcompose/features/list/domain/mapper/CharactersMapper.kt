@@ -2,7 +2,7 @@ package com.ambiws.daggerandcompose.features.list.domain.mapper
 
 import com.ambiws.daggerandcompose.features.list.data.dataSource.response.CharacterResponse
 import com.ambiws.daggerandcompose.features.list.domain.model.Character
-import com.ambiws.daggerandcompose.features.list.ui.model.CharacterItemModel
+import com.ambiws.daggerandcompose.features.list.ui.list.CharacterItemModel
 import com.ambiws.daggerandcompose.utils.extensions.throwIfNull
 
 fun CharacterResponse.toDomain() = Character(

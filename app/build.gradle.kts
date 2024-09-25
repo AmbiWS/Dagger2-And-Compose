@@ -74,4 +74,10 @@ dependencies {
     implementation(libs.retrofit.converter.gson)
     implementation(platform(libs.okhttp))
     implementation(libs.okhttp.logging.interceptor)
+
+    // List
+    implementation(libs.adapter.delegates)
+
+    // Images
+    implementation(libs.picasso)
 }
