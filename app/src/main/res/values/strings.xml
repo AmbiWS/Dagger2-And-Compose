@@ -9,4 +9,7 @@
     <string name="no_internet_connection">No internet connection</string>
 
     <string name="home_fragment">Home Fragment</string>
+    <string name="home">Home</string>
+    <string name="list">List</string>
+    <string name="profile">Profile</string>
 </resources>
