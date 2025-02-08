@@ -8,6 +8,8 @@ import androidx.fragment.app.FragmentManager
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import com.ambiws.daggerandcompose.features.dashboard.ui.navbar.BottomItem
+import com.ambiws.daggerandcompose.features.dashboard.ui.navbar.BottomNavbar
 import com.ambiws.daggerandcompose.utils.logd
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
