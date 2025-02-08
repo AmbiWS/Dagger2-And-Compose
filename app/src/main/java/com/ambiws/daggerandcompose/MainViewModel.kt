@@ -1,10 +1,10 @@
 package com.ambiws.daggerandcompose
 
-import androidx.lifecycle.ViewModel
+import com.ambiws.daggerandcompose.base.BaseViewModel
 import com.ambiws.daggerandcompose.utils.SingleLiveEvent
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor() : ViewModel() {
+class MainViewModel @Inject constructor() : BaseViewModel() {
 
     val startDestinationEvent = SingleLiveEvent<Int>()
 

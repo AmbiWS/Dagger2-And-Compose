@@ -1,4 +1,5 @@
 package com.ambiws.daggerandcompose.features.dashboard.ui
 
-class DashboardViewModel {
-}
+import com.ambiws.daggerandcompose.base.BaseViewModel
+
+class DashboardViewModel : BaseViewModel()

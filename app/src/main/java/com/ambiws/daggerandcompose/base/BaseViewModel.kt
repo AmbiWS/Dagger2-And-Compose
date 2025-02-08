@@ -4,6 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.NavDestination
+import androidx.navigation.NavDirections
+import androidx.navigation.Navigator
 import com.ambiws.daggerandcompose.base.navigation.NavigationCommand
 import com.ambiws.daggerandcompose.base.navigation.ViewModelNavigation
 import com.ambiws.daggerandcompose.core.network.adapters.ExceptionParser
@@ -11,6 +14,7 @@ import com.ambiws.daggerandcompose.core.network.adapters.model.NetworkErrorData
 import com.ambiws.daggerandcompose.core.network.adapters.model.exceptions.UnauthorizedServerError
 import com.ambiws.daggerandcompose.utils.loge
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.MutableStateFlow
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
@@ -24,6 +28,10 @@ abstract class BaseViewModel : ViewModel() {
     val navigationCommand: LiveData<NavigationCommand> by lazy { navigation.navigationCommand }
 
     fun navigateBack(hideKeyboard: Boolean = true) = navigation.navigateBack(hideKeyboard)
+    fun navigateChild(direction: NavDirections, navigatorExtras: Navigator.Extras?) = navigation.navigateChild(
+        direction,
+        navigatorExtras
+    )
 
     /*
      *  Data
@@ -39,6 +47,11 @@ abstract class BaseViewModel : ViewModel() {
 
     protected val mainContext: CoroutineContext = Dispatchers.Main
     protected val ioContext: CoroutineContext = Dispatchers.IO
+
+    /**
+     * Used by [BaseHostFragment] if this fragment hosts a [androidx.navigation.fragment.NavHostFragment]
+     */
+    val currentDestination = MutableStateFlow<NavDestination?>(null)
 
     private val _stateLiveEvent: MutableLiveData<UiState> = MutableLiveData()
     val stateLiveEvent: LiveData<UiState> = _stateLiveEvent
