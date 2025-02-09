@@ -1,5 +1,7 @@
 package com.ambiws.daggerandcompose.utils.extensions
 
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
@@ -15,3 +17,9 @@ inline fun <reified T : ViewModel> Fragment.injectViewModel(factory: ViewModelPr
 }
 
 fun NavHostFragment.getCurrentFragment(): Fragment? = childFragmentManager.primaryNavigationFragment
+
+inline fun Fragment.onBackPressedCallback(crossinline onBackPressedCallback: OnBackPressedCallback.() -> Unit) {
+    requireActivity().onBackPressedDispatcher.addCallback(this) {
+        onBackPressedCallback()
+    }
+}
