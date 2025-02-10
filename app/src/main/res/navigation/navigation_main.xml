@@ -2,19 +2,10 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigation_main"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/dashboardFragment">
 
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.ambiws.daggerandcompose.features.home.ui.HomeFragment"
-        android:label="HomeFragment">
-        <action
-            android:id="@+id/action_homeFragment_to_listFragment"
-            app:destination="@id/listFragment" />
-    </fragment>
-    
-    <fragment
-        android:id="@+id/listFragment"
-        android:name="com.ambiws.daggerandcompose.features.list.ui.ListFragment"
-        android:label="ListFragment" />
+        android:id="@+id/dashboardFragment"
+        android:name="com.ambiws.daggerandcompose.features.dashboard.ui.DashboardFragment"
+        android:label="DashboardFragment" />
 </navigation>

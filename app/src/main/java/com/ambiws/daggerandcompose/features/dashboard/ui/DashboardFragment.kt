@@ -50,18 +50,18 @@ class DashboardFragment : BaseHostFragment<DashboardViewModel, FragmentDashboard
             bottomGraphs = listOf(
                 BottomNavigationController.BottomGraph(
                     BottomItem.HOME,
-                    R.navigation.navigation_,
-                    R.id.navigation_
+                    R.navigation.navigation_home,
+                    R.id.navigation_home
                 ),
                 BottomNavigationController.BottomGraph(
                     BottomItem.LIST,
-                    R.navigation.navigation_,
-                    R.id.navigation_
+                    R.navigation.navigation_list,
+                    R.id.navigation_list
                 ),
                 BottomNavigationController.BottomGraph(
                     BottomItem.PROFILE,
-                    R.navigation.navigation_,
-                    R.id.navigation_
+                    R.navigation.navigation_profile,
+                    R.id.navigation_profile
                 )
             ),
             fragmentManager = childFragmentManager,

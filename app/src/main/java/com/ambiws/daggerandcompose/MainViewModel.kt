@@ -9,6 +9,6 @@ class MainViewModel @Inject constructor() : BaseViewModel() {
     val startDestinationEvent = SingleLiveEvent<Int>()
 
     fun initStartDestination() {
-        startDestinationEvent.value = R.id.homeFragment
+        startDestinationEvent.value = R.id.dashboardFragment
     }
 }
