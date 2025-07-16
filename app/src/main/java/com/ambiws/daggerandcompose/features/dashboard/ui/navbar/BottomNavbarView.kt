@@ -40,11 +40,11 @@ class BottomNavbarView @JvmOverloads constructor(
     }
 
     private fun setActiveTabsColor() {
-        BottomItem.HOME.colorTitleActive = R.color.secondary
+        BottomItem.HOME.colorTitleActive = R.color.black
         BottomItem.HOME.iconResActive = R.drawable.ic_home_selected
-        BottomItem.LIST.colorTitleActive = R.color.secondary
+        BottomItem.LIST.colorTitleActive = R.color.black
         BottomItem.LIST.iconResActive = R.drawable.ic_list_selected
-        BottomItem.PROFILE.colorTitleActive = R.color.secondary
+        BottomItem.PROFILE.colorTitleActive = R.color.black
         BottomItem.PROFILE.iconResActive = R.drawable.ic_profile_selected
     }
 

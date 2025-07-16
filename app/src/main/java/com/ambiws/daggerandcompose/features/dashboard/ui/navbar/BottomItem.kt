@@ -19,7 +19,7 @@ enum class BottomItem(
         R.drawable.ic_home_selected,
         R.string.home,
         R.color.grey,
-        R.color.secondary
+        R.color.black
     ),
     LIST(
         2,
@@ -28,7 +28,7 @@ enum class BottomItem(
         R.drawable.ic_list_selected,
         R.string.list,
         R.color.grey,
-        R.color.secondary
+        R.color.black
     ),
     PROFILE(
         3,
@@ -37,7 +37,7 @@ enum class BottomItem(
         R.drawable.ic_profile_selected,
         R.string.profile,
         R.color.grey,
-        R.color.secondary
+        R.color.black
     );
 
     companion object {
