@@ -11,8 +11,9 @@ import com.ambiws.daggerandcompose.utils.SingleLiveEvent
 import com.ambiws.daggerandcompose.utils.extensions.mutable
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import javax.inject.Inject
 
-class DashboardViewModel : BaseViewModel() {
+class DashboardViewModel @Inject constructor() : BaseViewModel() {
 
     lateinit var currentBottomNavController: LiveData<NavController>
 

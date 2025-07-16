@@ -2,6 +2,7 @@ package com.ambiws.daggerandcompose.core.di.modules
 
 import com.ambiws.daggerandcompose.base.BaseViewModel
 import com.ambiws.daggerandcompose.core.di.vm.ViewModelKey
+import com.ambiws.daggerandcompose.features.dashboard.ui.DashboardViewModel
 import com.ambiws.daggerandcompose.features.home.ui.HomeViewModel
 import com.ambiws.daggerandcompose.features.list.ui.ListViewModel
 import com.ambiws.daggerandcompose.features.profile.ui.ProfileViewModel
@@ -26,4 +27,9 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(ProfileViewModel::class)
     fun provideProfileViewModel(profileViewModel: ProfileViewModel): BaseViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DashboardViewModel::class)
+    fun provideDashboardViewModel(dashboardViewModel: DashboardViewModel): BaseViewModel
 }
