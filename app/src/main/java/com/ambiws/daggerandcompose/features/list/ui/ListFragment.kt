@@ -7,7 +7,6 @@ import com.ambiws.daggerandcompose.databinding.FragmentListBinding
 import com.ambiws.daggerandcompose.features.list.ui.list.CharacterBaseItemModel
 import com.ambiws.daggerandcompose.features.list.ui.list.CharactersAdapterDelegate
 import com.ambiws.daggerandcompose.utils.extensions.subscribe
-import com.ambiws.daggerandcompose.utils.loge
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 
 class ListFragment : BaseFragment<ListViewModel, FragmentListBinding>(
@@ -18,7 +17,7 @@ class ListFragment : BaseFragment<ListViewModel, FragmentListBinding>(
         AsyncListDifferDelegationAdapter(
             DefaultListDiffer<CharacterBaseItemModel>(),
             CharactersAdapterDelegate.charactersDefaultAdapterDelegate { itemModel ->
-                loge("Clicked On: $itemModel")
+                viewModel.navigateToDetails(itemModel)
             },
         )
     }

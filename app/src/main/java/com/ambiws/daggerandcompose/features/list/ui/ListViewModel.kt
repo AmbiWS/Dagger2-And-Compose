@@ -28,4 +28,10 @@ class ListViewModel @Inject constructor(
             _charactersLiveData.value = characters
         }
     }
+
+    fun navigateToDetails(itemModel: CharacterItemModel) {
+        navigation.navigate(
+            ListFragmentDirections.actionListFragmentToDetailsFragment(itemModel)
+        )
+    }
 }

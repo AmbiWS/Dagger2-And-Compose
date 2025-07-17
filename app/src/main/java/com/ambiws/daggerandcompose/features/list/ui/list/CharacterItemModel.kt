@@ -1,6 +1,7 @@
 package com.ambiws.daggerandcompose.features.list.ui.list
 
 import com.ambiws.daggerandcompose.base.list.ItemModel
+import java.io.Serializable
 
 interface CharacterBaseItemModel : ItemModel
 
@@ -13,4 +14,4 @@ data class CharacterItemModel(
     val birthdate: String,
     val image: String,
     val children: String,
-) : CharacterBaseItemModel
+) : CharacterBaseItemModel, Serializable

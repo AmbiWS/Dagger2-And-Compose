@@ -20,5 +20,9 @@ fun Character.toItemModel() = CharacterItemModel(
     house = house,
     birthdate = birthdate.throwIfNull(),
     image = image.throwIfNull(),
-    children = children?.joinToString(separator = "\n") ?: "Has No Children",
+    children = if (!children.isNullOrEmpty()) {
+        (if (children.size > 1) "Children\n" else "Child\n").plus(
+            children.joinToString(separator = "\n")
+        )
+    } else "Has No Children",
 )

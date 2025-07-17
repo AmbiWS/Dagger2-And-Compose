@@ -7,5 +7,20 @@
     <fragment
         android:id="@+id/listFragment"
         android:name="com.ambiws.daggerandcompose.features.list.ui.ListFragment"
-        android:label="ListFragment" />
+        android:label="ListFragment">
+        <action
+            android:id="@+id/action_listFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.ambiws.daggerandcompose.features.details.ui.DetailsFragment"
+        android:label="DetailsFragment">
+        <argument
+            android:name="itemModel"
+            android:defaultValue="@null"
+            app:argType="com.ambiws.daggerandcompose.features.list.ui.list.CharacterItemModel"
+            app:nullable="true" />
+    </fragment>
 </navigation>
