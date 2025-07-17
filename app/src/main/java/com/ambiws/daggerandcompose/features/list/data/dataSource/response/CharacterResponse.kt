@@ -13,4 +13,6 @@ data class CharacterResponse(
     val birthdate: String?,
     @SerializedName("image")
     val image: String?,
+    @SerializedName("children")
+    val children: List<String>?,
 )

@@ -11,6 +11,7 @@ fun CharacterResponse.toDomain() = Character(
     house = house ?: "Undefined",
     birthdate = birthdate,
     image = image,
+    children = children,
 )
 
 fun Character.toItemModel() = CharacterItemModel(
@@ -19,4 +20,5 @@ fun Character.toItemModel() = CharacterItemModel(
     house = house,
     birthdate = birthdate.throwIfNull(),
     image = image.throwIfNull(),
+    children = children?.joinToString(separator = "\n") ?: "Has No Children",
 )

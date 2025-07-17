@@ -7,7 +7,9 @@ import com.squareup.picasso.Picasso
 
 object CharactersAdapterDelegate {
 
-    fun charactersDefaultAdapterDelegate(): AdapterDelegate<List<CharacterBaseItemModel>> {
+    fun charactersDefaultAdapterDelegate(
+        onClick: (CharacterItemModel) -> Unit
+    ): AdapterDelegate<List<CharacterBaseItemModel>> {
         return adapterDelegateViewBinding<CharacterItemModel, CharacterBaseItemModel, ItemCharacterBinding>(
             { layoutInflater, parent ->
                 ItemCharacterBinding.inflate(layoutInflater, parent, false)
@@ -20,6 +22,9 @@ object CharactersAdapterDelegate {
                     tvNickname.text = item.nickname
                     tvHouse.text = item.house
                     tvBirthday.text = item.birthdate
+                    this.root.setOnClickListener {
+                        onClick.invoke(item)
+                    }
                 }
             }
         }

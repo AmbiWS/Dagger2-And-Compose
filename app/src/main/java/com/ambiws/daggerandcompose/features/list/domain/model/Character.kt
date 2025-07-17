@@ -6,4 +6,5 @@ data class Character(
     val house: String,
     val birthdate: String?,
     val image: String?,
+    val children: List<String>?,
 )
