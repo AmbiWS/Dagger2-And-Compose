@@ -16,4 +16,8 @@
     <string name="house">Hogwarts House: %s</string>
     <string name="birthday">Birthday: %s</string>
     <string name="dataError">Can\'t Load Data</string>
+    <string name="hogwarts_houses">Hogwarts Houses</string>
+    <string name="founder">Founder</string>
+    <string name="colors">Colors</string>
+    <string name="animal">Animal</string>
 </resources>

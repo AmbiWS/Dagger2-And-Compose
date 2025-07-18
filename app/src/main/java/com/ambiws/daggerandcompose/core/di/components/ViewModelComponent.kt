@@ -6,6 +6,7 @@ import com.ambiws.daggerandcompose.core.di.modules.NetModule
 import com.ambiws.daggerandcompose.core.di.modules.UtilsModule
 import com.ambiws.daggerandcompose.core.di.modules.ViewModelModule
 import com.ambiws.daggerandcompose.core.di.scopes.FeatureScope
+import com.ambiws.daggerandcompose.features.home.di.HouseModule
 import com.ambiws.daggerandcompose.features.list.di.ListModule
 import dagger.BindsInstance
 import dagger.Subcomponent
@@ -13,7 +14,8 @@ import dagger.Subcomponent
 @Subcomponent(
     modules = [
         ViewModelModule::class, NetModule::class,
-        UtilsModule::class, ListModule::class
+        UtilsModule::class, ListModule::class,
+        HouseModule::class,
     ]
 )
 @FeatureScope
