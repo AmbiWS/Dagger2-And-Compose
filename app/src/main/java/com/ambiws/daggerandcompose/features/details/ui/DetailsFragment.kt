@@ -29,4 +29,11 @@ class DetailsFragment : BaseFragment<DetailsViewModel, FragmentDetailsBinding>(
             binding.tvName.text = getString(R.string.dataError)
         }
     }
+
+    override fun setupListeners() {
+        super.setupListeners()
+        binding.customToolbar.ivLeftAction.setOnClickListener {
+            viewModel.navigateBack()
+        }
+    }
 }
