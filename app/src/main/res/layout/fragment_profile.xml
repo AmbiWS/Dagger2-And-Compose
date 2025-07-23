@@ -15,12 +15,72 @@
         app:title="Username" />
 
     <TextView
-        android:id="@+id/tvProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Profile Fragment"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/tvSubscription"
+        style="@style/TextClassic14"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:background="@drawable/bg_bottom_separator"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:text="@string/subscription"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/customToolbar" />
+
+    <TextView
+        android:id="@+id/tvSettings"
+        style="@style/TextClassic14"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:background="@drawable/bg_bottom_separator"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:text="@string/settings"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSubscription" />
+
+    <TextView
+        android:id="@+id/tvEdit"
+        style="@style/TextClassic14"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:background="@drawable/bg_bottom_separator"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:text="Edit"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSettings" />
+
+    <TextView
+        android:id="@+id/tvNotifications"
+        style="@style/TextClassic14"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:background="@drawable/bg_bottom_separator"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:text="@string/notifications"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEdit" />
+
+    <TextView
+        android:id="@+id/tvAbout"
+        style="@style/TextClassic14"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:background="@drawable/bg_bottom_separator"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:text="@string/about"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNotifications" />
 </androidx.constraintlayout.widget.ConstraintLayout>
