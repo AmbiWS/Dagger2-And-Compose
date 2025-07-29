@@ -15,6 +15,7 @@ import com.ambiws.daggerandcompose.core.di.components.DaggerAppComponent
 // TODO Check behaviour on collect in BaseViewModel 'launch' (endless loading?)
 // TODO Check for memory leaks and unnecessary calls/object creations, optimize everything
 // TODO Add errors handling
+// TODO Find another way to access navBar from profile feature
 class App : Application() {
 
     private lateinit var appComponent: AppComponent

@@ -23,3 +23,12 @@ inline fun Fragment.onBackPressedCallback(crossinline onBackPressedCallback: OnB
         onBackPressedCallback()
     }
 }
+
+fun Fragment.getParentFragment(ignoreNavHostFragment: Boolean): Fragment? =
+    parentFragment?.let { fragment ->
+        if (fragment is NavHostFragment && ignoreNavHostFragment) {
+            fragment.getParentFragment(true)
+        } else {
+            fragment
+        }
+    }
