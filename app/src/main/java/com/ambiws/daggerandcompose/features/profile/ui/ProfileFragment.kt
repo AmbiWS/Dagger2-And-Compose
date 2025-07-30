@@ -4,6 +4,7 @@ import com.ambiws.daggerandcompose.base.BaseFragment
 import com.ambiws.daggerandcompose.databinding.FragmentProfileBinding
 import com.ambiws.daggerandcompose.features.dashboard.ui.DashboardFragment
 import com.ambiws.daggerandcompose.utils.extensions.getParentFragment
+import com.ambiws.daggerandcompose.utils.extensions.setUnderConstructionToast
 
 class ProfileFragment : BaseFragment<ProfileViewModel, FragmentProfileBinding>(
     FragmentProfileBinding::inflate
@@ -12,6 +13,13 @@ class ProfileFragment : BaseFragment<ProfileViewModel, FragmentProfileBinding>(
     override fun setupListeners() {
         super.setupListeners()
         setupDashboardNavigationBack()
+        with(binding) {
+            tvSubscription.setUnderConstructionToast()
+            tvSettings.setUnderConstructionToast()
+            tvEdit.setUnderConstructionToast()
+            tvNotifications.setUnderConstructionToast()
+            tvAbout.setUnderConstructionToast()
+        }
     }
 
     private fun setupDashboardNavigationBack() {
