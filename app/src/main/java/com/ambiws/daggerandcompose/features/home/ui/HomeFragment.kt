@@ -1,6 +1,7 @@
 package com.ambiws.daggerandcompose.features.home.ui
 
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
 import com.ambiws.daggerandcompose.base.BaseFragment
 import com.ambiws.daggerandcompose.base.list.DefaultListDiffer
 import com.ambiws.daggerandcompose.databinding.FragmentHomeBinding
@@ -25,6 +26,8 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(
         with(binding) {
             rvHouses.layoutManager = LinearLayoutManager(requireContext())
             rvHouses.adapter = adapter
+            val snapHelper = PagerSnapHelper()
+            snapHelper.attachToRecyclerView(rvHouses)
         }
     }
 
