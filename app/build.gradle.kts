@@ -82,4 +82,9 @@ dependencies {
 
     // Images
     implementation(libs.picasso)
+
+    // Database
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    kapt(libs.room.compiler)
 }
